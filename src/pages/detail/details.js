@@ -1,15 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Background, BtnContact, BtnFollow, BtnFollow1, ButtonRegis, CardContainer, Container, ContainerIcon, InContainer, Row2, Row2ContainerLeft, Row2ContainerRight, Row3ContainerLeft, Row3ContainerRight, Select, TagsContainer, Tilte, WrapIconLove } from './style'
 import { AiOutlineUpload } from 'react-icons/ai'
 import { GiSelfLove } from 'react-icons/gi'
 import { FaEnvelope, FaFacebookF, FaLinkedinIn, FaTwitter, FaUpload } from 'react-icons/fa'
 import { FiMessageCircle } from 'react-icons/fi'
 import { FooterHome } from '../../component/footer/footerhome/footer'
+import { ModalDetails } from "../../component/modal/details/modal.details"
 
 export const Details = (props) => {
-  const props1 = props
+  const [show, setShow] = useState(false)
   return (
     <div>
+      <ModalDetails show={show} onHide={() => setShow(!show)} />
       <Container>
         <Background></Background>
         <InContainer>
@@ -56,7 +58,7 @@ export const Details = (props) => {
                 </ContainerIcon>
               </Row2ContainerLeft>
               <Row2ContainerRight>
-                <ButtonRegis>
+                <ButtonRegis onClick={() => setShow(!show)}>
                   Register
                 </ButtonRegis>
               </Row2ContainerRight>
